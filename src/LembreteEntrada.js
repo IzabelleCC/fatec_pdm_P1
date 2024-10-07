@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default class LembreteEntrada extends Component {
-    render() {
+const LembreteEntrada = ({lembrete}) => {
         return (
-            <div className='container' style={{ marginTop: '1rem', marginBottom: '1rem' }}>
+            <div className='container'>
                 <div className='row justify-content-center'>
                     <div 
                         className='col-12 text-center'
@@ -14,10 +13,11 @@ export default class LembreteEntrada extends Component {
                             borderRadius: '0.75rem',
                             textAlign: 'center'
                         }}>
-                        Lembrete
+                        {lembrete}
                     </div>
                 </div>
             </div>
         );
-    }
 }
+
+export default LembreteEntrada;
