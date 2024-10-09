@@ -1,0 +1,50 @@
+.lembrete-lista-container {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lembrete-titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4f4f4f;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.lembrete-lista-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.lembrete-lista-item {
+    box-sizing: border-box;
+}
+
+/* Para telas grandes (3 lembretes por linha) */
+@media (min-width: 992px) {
+    .lembrete-lista-item {
+        flex: 1 1 calc(33.333% - 1rem);
+        max-width: calc(33.333% - 1rem);
+    }
+}
+
+/* Para telas médias (2 lembretes por linha) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .lembrete-lista-item {
+        flex: 1 1 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+}
+
+/* Para telas pequenas (1 lembrete por linha) */
+@media (max-width: 767px) {
+    .lembrete-lista-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}

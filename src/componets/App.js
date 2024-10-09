@@ -22,12 +22,29 @@ export default class App extends Component {
             }));
         }
     }
+    
+    handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            this.onListaAlterada(event);
+        }
+    }
+
+    deleteLembrete = (index) => {
+        this.setState(prevState => {
+            const listaAtualizada = [...prevState.listaLembretes];
+            listaAtualizada.splice(index, 1);
+            return { listaLembretes: listaAtualizada };
+        });
+    }
 
     render() {
         return (
             <div className="app-container">
                 <div>
-                    <LembreteLista lista={this.state.listaLembretes} />
+                    <LembreteLista 
+                        lista={this.state.listaLembretes}
+                        onDelete={this.deleteLembrete}
+                    />
                 </div>
                 
                 <div className="row justify-content-center mb-3">
@@ -37,6 +54,7 @@ export default class App extends Component {
                             placeholder='Digite seu novo lembrete'
                             value={this.state.novoLembrete}
                             onChange={this.onTermoAlterado}
+                            onKeyDown={this.handleKeyDown}
                             className="input-field"
                         />
                     </div>
